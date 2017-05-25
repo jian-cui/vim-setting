@@ -21,6 +21,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'statianzo/vim-jade'
 Plugin 'posva/vim-vue'
+" 垂直缩进对齐
+" Plugin 'git://github.com/nathanaelkane/vim-indent-guides.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -63,6 +65,17 @@ let NERDTreeShowHidden=1
 " nerd tree 设置 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indent_guides setting begin
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1 
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indent_guides setting end
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 中文编码问题 begin
@@ -98,6 +111,9 @@ endif
 " GUI设置 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" wrap
+set wrap
+
 " syntax on
 syntax on
 syntax enable
@@ -120,8 +136,17 @@ set autoread
 " auto save
 set autowrite
 
-" highline current line
+" highlight current line
 set cursorline
+
+" hightlight current column
+" set cursorcolumn
+
+" 光标移动到buffer的顶部和底部时保持3行距离   
+set scrolloff=3  
+
+" turn on wild menu
+set wildmenu
 
 set magic
 
@@ -166,5 +191,4 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件备份选项 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
