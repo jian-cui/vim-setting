@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
+
 " Plugin 'Valloric/YouCompleteMe'   " 自动补全
 
 Plug 'scrooloose/nerdtree'
@@ -15,18 +15,31 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'mattn/emmet-vim'          " emmet插件
 Plug 'hail2u/vim-css3-syntax'     " css3
 Plug 'groenewege/vim-less'        " less
-Plug 'Raimondi/delimitMate'     " 自动补全大括号
+Plug 'mattn/emmet-vim' " html拓展
 Plug 'pangloss/vim-javascript'   " js
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'altercation/vim-colors-solarized' " 主题
+Plug 'posva/vim-vue' " vue
+Plug 'statianzo/vim-jade' " jade
+
 Plug 'vim-airline/vim-airline'         " 状态栏美化
 Plug 'vim-airline/vim-airline-themes'  " 状态栏美化
-Plug 'statianzo/vim-jade' " jade
-Plug 'posva/vim-vue' " vue
-Plug 'mattn/emmet-vim' " html拓展
-Plug 'jiangmiao/auto-pairs' " 括号匹配
 
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'jiangmiao/auto-pairs' " 括号匹配
+Plug 'Raimondi/delimitMate'     " 自动补全大括号
 Plug 'junegunn/vim-easy-align' " 对齐指定符号
+
+" Theme
+" Plug 'altercation/vim-colors-solarized' " 主题
+Plug 'iCyMind/NeoSolarized' " 支持真彩色的solarized主题
+Plug 'liuchengxu/space-vim-theme' " 主题
+Plug 'morhetz/gruvbox' " 主题
+
+
+Plug 'vim-airline/vim-airline' " 信息栏设置
+Plug 'vim-airline/vim-airline-themes' " 信息栏主题
+
+" Git
+Plug 'airblade/vim-gitgutter' " 显示git diff
 
 
 call plug#end()
@@ -34,11 +47,31 @@ call plug#end()
 " vim-plug end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on    " required
 
-" vim-javascript 设置 begin
-let javascript_enable_domhtmlcss = 1
-" vim-javascript 设置 end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline设置 begin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! AirlineInit()
+  let g:airline#extensions#tabline#enabled=1
+  " let g:airline#extensions#tabline#left_sep = ' '
+  " let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+  let g:airline_powerline_fonts = 1
+  " let g:airline_theme='<theme>' " 设置airline主题
+endfunction
+" autocmd VimEnter * call AirlineInit()
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
+" let g:airline_theme='<theme>' " 设置airline主题
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline设置 end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,11 +79,15 @@ let javascript_enable_domhtmlcss = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 syntax enable
-set background=dark
-colorscheme solarized
+set termguicolors " 支持真彩色
+" set background=dark
+" colorscheme NeoSolarized
+colorscheme space_vim_theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 
 
@@ -66,14 +103,30 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 当所有文件关闭时关闭项目树窗格
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 不显示这些文件
-let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules'] 
-" 不显示项目树上额外的信息，例如帮助、提示什么的
-let NERDTreeMinimalUI=1
+let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '.git', '.DS_Store'] 
 " show all hidden file
 let NERDTreeShowHidden=1
+
+" autocmd vimenter * NERDTree  "自动开启Nerdtree
+" "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
+" let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
+" "设置树的显示图标
+" " let g:NERDTreeDirArrowExpandable = '▸'
+" " let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeShowLineNumbers=1  " 是否显示行号
+" let g:NERDTreeHidden=0     "不显示隐藏文件
+" "Making it prettier
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerd tree 设置 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+
 
 
 
@@ -91,8 +144,20 @@ let g:indent_guides_guide_size = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+
+
+
+
+
+
+filetype plugin indent on    " required
+
+" vim-javascript 设置 begin
+let javascript_enable_domhtmlcss = 1
+" vim-javascript 设置 end
+
 " 设置空白字符的视觉提示
-set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+" set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
 
 " wrap
 set wrap
