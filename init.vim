@@ -18,9 +18,16 @@ Plug 'groenewege/vim-less'        " less
 Plug 'Raimondi/delimitMate'     " 自动补全大括号
 Plug 'pangloss/vim-javascript'   " js
 Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized' " 主题
+Plug 'vim-airline/vim-airline'         " 状态栏美化
+Plug 'vim-airline/vim-airline-themes'  " 状态栏美化
 Plug 'statianzo/vim-jade' " jade
 Plug 'posva/vim-vue' " vue
+Plug 'mattn/emmet-vim' " html拓展
+Plug 'jiangmiao/auto-pairs' " 括号匹配
+
+Plug 'junegunn/vim-easy-align' " 对齐指定符号
+
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -32,6 +39,20 @@ filetype plugin indent on    " required
 " vim-javascript 设置 begin
 let javascript_enable_domhtmlcss = 1
 " vim-javascript 设置 end
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 主题设置 begin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+syntax enable
+set background=dark
+colorscheme solarized
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 主题设置 end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,6 +75,9 @@ let NERDTreeShowHidden=1
 " nerd tree 设置 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " indent_guides setting begin
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -67,12 +91,11 @@ let g:indent_guides_guide_size = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+" 设置空白字符的视觉提示
+set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+
 " wrap
 set wrap
-
-" syntax on
-syntax on
-syntax enable
 
 " show line number
 set nu
