@@ -3,7 +3,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-
 " Plugin 'Valloric/YouCompleteMe'   " 自动补全
 
 Plug 'scrooloose/nerdtree'
@@ -41,6 +40,8 @@ Plug 'vim-airline/vim-airline-themes' " 信息栏主题
 " Git
 Plug 'airblade/vim-gitgutter' " 显示git diff
 
+" 设置输入法
+Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
