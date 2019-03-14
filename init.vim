@@ -26,7 +26,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs' " 括号匹配
 Plug 'Raimondi/delimitMate'     " 自动补全大括号
 Plug 'junegunn/vim-easy-align' " 对齐指定符号
-Plug 'Valloric/YouCompleteMe' " 代码自动补全 
+Plug 'Valloric/YouCompleteMe' " 代码自动补全
+Plug 'maksimr/vim-jsbeautify' " js/css/html代码格式化
 
 " Theme
 " Plug 'altercation/vim-colors-solarized' " 主题
@@ -74,8 +75,6 @@ let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 begin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -90,6 +89,21 @@ colorscheme space_vim_theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" jsbeautify begin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType javascript noremap <buffer> ff :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> ff :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> ff :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> ff :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> ff :call CSSBeautify()<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" jsbeautify end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
@@ -147,7 +161,13 @@ let g:indent_guides_guide_size = 1
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 自定义快捷键 begin
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 自定义快捷键 end
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
@@ -160,6 +180,9 @@ let javascript_enable_domhtmlcss = 1
 
 " 设置空白字符的视觉提示
 " set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+
+" 设置80列
+:set colorcolumn=72
 
 " wrap
 set wrap

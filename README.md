@@ -15,3 +15,5 @@
 5. 打开nvim 执行`:PlugInstall`
 
 
+
+vim-jsbeautify 重置设置[.editorconfig](https://github.com/maksimr/vim-jsbeautify)
