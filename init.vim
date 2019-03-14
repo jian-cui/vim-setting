@@ -26,6 +26,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs' " 括号匹配
 Plug 'Raimondi/delimitMate'     " 自动补全大括号
 Plug 'junegunn/vim-easy-align' " 对齐指定符号
+Plug 'Valloric/YouCompleteMe' " 代码自动补全 
 
 " Theme
 " Plug 'altercation/vim-colors-solarized' " 主题
@@ -188,7 +189,7 @@ set cursorline
 " set cursorcolumn
 
 " 光标移动到buffer的顶部和底部时保持3行距离   
-set scrolloff=3  
+set scrolloff=2 
 
 " turn on wild menu
 set wildmenu
@@ -203,9 +204,9 @@ set autoindent
 set cindent
 
 " set tab equals 4 space
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 
 " ignore case when searching
