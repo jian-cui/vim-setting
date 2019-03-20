@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim' " html拓展
 Plug 'pangloss/vim-javascript'   " js
 Plug 'posva/vim-vue' " vue
 Plug 'statianzo/vim-jade' " jade
+Plug 'digitaltoad/vim-pug' " pug
 
 Plug 'vim-airline/vim-airline'         " 状态栏美化
 Plug 'vim-airline/vim-airline-themes'  " 状态栏美化
@@ -121,7 +122,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " 不显示这些文件
 let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '.git', '.DS_Store'] 
 " show all hidden file
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 
 " autocmd vimenter * NERDTree  "自动开启Nerdtree
 " "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
@@ -130,18 +131,14 @@ let NERDTreeShowHidden=1
 " " let g:NERDTreeDirArrowExpandable = '▸'
 " " let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeShowLineNumbers=1  " 是否显示行号
-" let g:NERDTreeHidden=0     "不显示隐藏文件
+" let g:NERDTreeHidden=1     " 显示隐藏文件
 " "Making it prettier
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerd tree 设置 end
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
