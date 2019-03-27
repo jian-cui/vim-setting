@@ -1,0 +1,54 @@
+global !p
+from comment_snippets import (comment, comment_inline)
+endglobal
+
+snippet if "if语句"
+if (${1:true}) {
+	$2
+}$0
+endsnippet
+
+snippet for "for语句"
+for ($1; $2; $3) {
+	$4
+}$0
+endsnippet
+
+
+snippet Class "Class"
+Class $1 {
+	constructor($2) {
+		$3
+	}
+}$0
+endsnippet
+
+snippet cl "console.log(...)"
+console.log($1)$0
+endsnippet
+
+
+snippet gt "new Date().getTime()"
+new Date().getTime()$0
+endsnippet
+
+
+snippet bcmt "块状comment"
+///////////////////////////////////////////////////////////////////////
+// $0
+///////////////////////////////////////////////////////////////////////
+endsnippet
+
+
+
+snippet c "单行注释"
+`!p
+snip.rv = comment(snip, START='// ', END='')
+`$0
+endsnippet
+
+snippet ci "多行注释"
+`!p
+snip.rv = comment_inline(snip, START="/* ", END=" */")
+`$0
+endsnippet

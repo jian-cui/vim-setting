@@ -46,10 +46,31 @@ Plug 'airblade/vim-gitgutter' " 显示git diff
 " 设置输入法
 Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 
+" snippet插件
+Plug 'SirVer/ultisnips' " snippet生成插件
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ultisnips begin
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-t>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ultisnips end
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

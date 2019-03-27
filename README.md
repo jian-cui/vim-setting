@@ -14,6 +14,6 @@
 4. git clone https://github.com/jian-cui/vim-setting.git ~/.config/nvim/
 5. 打开nvim 执行`:PlugInstall`
 
-
-
 vim-jsbeautify 重置设置[.editorconfig](https://github.com/maksimr/vim-jsbeautify)
+
+UltiSnips设置 https://keelii.com/2018/08/26/vim-plugin-ultisnips-advanced-tips/
