@@ -200,7 +200,7 @@ let javascript_enable_domhtmlcss = 1
 " set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
 
 " 设置80列
-:set colorcolumn=72
+:set colorcolumn=80
 
 " wrap
 set wrap
@@ -229,8 +229,8 @@ set cursorline
 " hightlight current column
 " set cursorcolumn
 
-" 光标移动到buffer的顶部和底部时保持3行距离   
-set scrolloff=2 
+" 光标移动到buffer的顶部和底部时保持n行距离   
+set scrolloff=1 
 
 " turn on wild menu
 set wildmenu
