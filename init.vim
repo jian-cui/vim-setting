@@ -232,10 +232,15 @@ set cursorline
 " 光标移动到buffer的顶部和底部时保持n行距离   
 set scrolloff=1 
 
-" turn on wild menu
+" turn on wild menu 在命令行中tab自动补全路径
 set wildmenu
 
+" 减少vim重绘
+set lazyredraw
+
 set magic
+" 高亮对应的括号
+set showmatch
 
 " 和系统剪切板统一
 set clipboard+=unnamed
@@ -246,7 +251,9 @@ set cindent
 
 " 设置折叠方式
 set fdm=indent
-set foldlevel=99 " 设置折叠层数
+" set foldlevel=99 " 设置折叠层数
+set nofoldenable " 默认关闭折叠
+set foldnestmax=3 " 最多折叠三层
 " set foldclose=all " 关闭自动折叠
 
 " set tab equals 4 space
