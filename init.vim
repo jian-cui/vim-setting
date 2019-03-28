@@ -246,8 +246,8 @@ set cindent
 
 " 设置折叠方式
 set fdm=indent
-setlocal foldlevel=1 " 设置折叠层数
-set foldclose=all " 关闭自动折叠
+set foldlevel=99 " 设置折叠层数
+" set foldclose=all " 关闭自动折叠
 
 " set tab equals 4 space
 set tabstop=2
