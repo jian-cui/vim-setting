@@ -19,8 +19,8 @@ def comment(snip, START="", END=""):
     if first_line.strip().startswith(START):
         result = [line.replace(START, "", 1).replace(END, "", 1) if line.strip() else line for line in lines]
     else:
-        # result = [f'{spaces}{START}{line[len(spaces):]}{END}' if line.strip() else line for line in lines ]
-        result = ['{0}{1}{2}{3}'.format(spaces, START, line[len(spaces):], END)  if line.strip() else line for line in lines]
+        result = [f'{spaces}{START}{line[len(spaces):]}{END}' if line.strip() else line for line in lines ]
+        # result = ['{0}{1}{2}{3}'.format(spaces, START, line[len(spaces):], END)  if line.strip() else line for line in lines]
 
     # Remove initial indent
     if result[0] and initial_indent:

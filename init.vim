@@ -3,13 +3,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-" Plugin 'Valloric/YouCompleteMe'   " 自动补全
-
+Plug 'digitaltoad/vim-pug' " pug
 Plug 'scrooloose/nerdtree'
+
 " 这个插件可以显示文件的Git增删状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}  " 状态栏修改
 
 " Plug 'mattn/emmet-vim'          " emmet插件
 Plug 'hail2u/vim-css3-syntax'     " css3
@@ -18,10 +16,6 @@ Plug 'mattn/emmet-vim' " html拓展
 Plug 'pangloss/vim-javascript'   " js
 Plug 'posva/vim-vue' " vue
 Plug 'statianzo/vim-jade' " jade
-Plug 'digitaltoad/vim-pug' " pug
-
-Plug 'vim-airline/vim-airline'         " 状态栏美化
-Plug 'vim-airline/vim-airline-themes'  " 状态栏美化
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs' " 括号匹配
@@ -35,7 +29,7 @@ Plug 'maksimr/vim-jsbeautify' " js/css/html代码格式化
 Plug 'iCyMind/NeoSolarized' " 支持真彩色的solarized主题
 Plug 'liuchengxu/space-vim-theme' " 主题
 Plug 'morhetz/gruvbox' " 主题
-
+Plug 'arcticicestudio/nord-vim' " 主题
 
 Plug 'vim-airline/vim-airline' " 信息栏设置
 Plug 'vim-airline/vim-airline-themes' " 信息栏主题
@@ -55,8 +49,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips begin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,28 +62,15 @@ let g:UltiSnipsSnippetDirectories=['UltiSnips']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline设置 begin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! AirlineInit()
-  let g:airline#extensions#tabline#enabled=1
-  " let g:airline#extensions#tabline#left_sep = ' '
-  " let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
-  let g:airline_powerline_fonts = 1
-  " let g:airline_theme='<theme>' " 设置airline主题
-endfunction
-" autocmd VimEnter * call AirlineInit()
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='<theme>' " 设置airline主题
-
+" let g:airline_theme='deus' " 设置airline主题
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,7 +84,10 @@ syntax enable
 set termguicolors " 支持真彩色
 " set background=dark
 " colorscheme NeoSolarized
-colorscheme space_vim_theme
+" colorscheme space_vim_theme
+colorscheme nord
+let g:nord_italic=1
+let g:nord_italic_comments=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -126,8 +108,6 @@ autocmd FileType css noremap <buffer> ff :call CSSBeautify()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " jsbeautify end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,9 +142,6 @@ let NERDTreeDirArrows = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " indent_guides setting begin
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -176,7 +153,6 @@ let g:indent_guides_guide_size = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " indent_guides setting end
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
