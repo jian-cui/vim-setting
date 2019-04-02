@@ -23,6 +23,8 @@ Plug 'Raimondi/delimitMate'     " 自动补全大括号
 Plug 'junegunn/vim-easy-align' " 对齐指定符号
 Plug 'Valloric/YouCompleteMe' " 代码自动补全
 Plug 'maksimr/vim-jsbeautify' " js/css/html代码格式化
+Plug 'tpope/vim-surround' " 括号增强
+
 
 " Theme
 " Plug 'altercation/vim-colors-solarized' " 主题
@@ -30,6 +32,7 @@ Plug 'iCyMind/NeoSolarized' " 支持真彩色的solarized主题
 Plug 'liuchengxu/space-vim-theme' " 主题
 Plug 'morhetz/gruvbox' " 主题
 Plug 'arcticicestudio/nord-vim' " 主题
+Plug 'junegunn/seoul256.vim' " seoul256
 
 Plug 'vim-airline/vim-airline' " 信息栏设置
 Plug 'vim-airline/vim-airline-themes' " 信息栏主题
@@ -81,13 +84,32 @@ let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 syntax enable
-set termguicolors " 支持真彩色
-" set background=dark
+" 支持真彩色 begin
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum  
+if !has('gui_running')
+  set t_Co=256
+  if has('termguicolors')
+    set termguicolors
+  end
+end
+" 支持真彩色 end
+set background=dark
+
+" let g:seoul256_rgb=1
+" let g:seoul256_background=236
+" colorscheme seoul256
+
 " colorscheme NeoSolarized
-" colorscheme space_vim_theme
-colorscheme nord
-let g:nord_italic=1
-let g:nord_italic_comments=1
+
+" space-vim主题设置
+let g:space_vim_italic=0
+colorscheme space_vim_theme
+
+" nord主题设置
+" let g:nord_italic=1
+" let g:nord_italic_comments=1
+" colorscheme nord
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,11 +231,13 @@ let javascript_enable_domhtmlcss = 1
 " 设置80列
 :set colorcolumn=80
 
-" wrap
+" 是否自动折行
 set wrap
 
 " show line number
-set nu
+set number
+" 显示相对行号
+set relativenumber
 
 " hide icons
 set go=
@@ -222,6 +246,7 @@ set noimdisable
 " set HELP document Chinese
 set helplang=cn
 
+" 在状态栏显示当前位置
 set ruler
 
 " 文档被改动时，自动加载
@@ -246,6 +271,7 @@ set wildmenu
 set lazyredraw
 
 set magic
+
 " 高亮对应的括号
 set showmatch
 
@@ -260,7 +286,7 @@ set cindent
 set fdm=indent
 " set foldlevel=99 " 设置折叠层数
 set nofoldenable " 默认关闭折叠
-set foldnestmax=3 " 最多折叠三层
+set foldnestmax=2 " 最多折叠三层
 " set foldclose=all " 关闭自动折叠
 
 " set tab equals 4 space
@@ -271,8 +297,11 @@ set expandtab
 
 " ignore case when searching
 set ignorecase
+" 如果第一个字母是大写，那么自动大小写敏感
+set smartcase
 " hightlight search
 set hlsearch
+" 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 
 " use mouse in vim
@@ -284,8 +313,15 @@ set showcmd
 " cmd height 1
 set cmdheight=1
 
+" 自动切换工作目录
+set autochdir
+
+" 撤销历史相关
+set undofile
+set history=1000
+
 ".vimrc编辑后自动生效,避免重启
-autocmd! bufwritepost .vimrc source ~/.vimrc
+" autocmd! bufwritepost .vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件备份选项 begin

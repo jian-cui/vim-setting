@@ -2,13 +2,12 @@
 
 ## 配置安装
 1. `brew install neovim`
-2. vim增加vim-plug 
 
+2. vim增加vim-plug 
    `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 3. neovim增加vim-plug
-
     `curl -fLo ~/.nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
