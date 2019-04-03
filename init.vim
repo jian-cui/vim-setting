@@ -284,9 +284,9 @@ set cindent
 
 " 设置折叠方式
 set fdm=indent
-" set foldlevel=99 " 设置折叠层数
+set foldlevel=99 " 设置折叠层数
 set nofoldenable " 默认关闭折叠
-set foldnestmax=2 " 最多折叠三层
+" set foldnestmax=2 " 最多折叠三层
 " set foldclose=all " 关闭自动折叠
 
 " set tab equals 4 space
