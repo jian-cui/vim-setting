@@ -4,9 +4,9 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'digitaltoad/vim-pug' " pug
-Plug 'scrooloose/nerdtree'
 
-" 这个插件可以显示文件的Git增删状态
+Plug 'scrooloose/nerdtree'
+" 显示文件的Git增删状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Plug 'mattn/emmet-vim'          " emmet插件
@@ -33,6 +33,8 @@ Plug 'liuchengxu/space-vim-theme' " 主题
 Plug 'morhetz/gruvbox' " 主题
 Plug 'arcticicestudio/nord-vim' " 主题
 Plug 'junegunn/seoul256.vim' " seoul256
+" Plug 'mhartington/oceanic-next' " neovim
+Plug 'chriskempson/base16-vim'
 
 Plug 'vim-airline/vim-airline' " 信息栏设置
 Plug 'vim-airline/vim-airline-themes' " 信息栏主题
@@ -45,6 +47,9 @@ Plug 'SirVer/ultisnips' " snippet生成插件
 
 " 彩虹括号
 Plug 'luochen1990/rainbow'
+
+" vim滑动滚动
+Plug 'terryma/vim-smooth-scroll'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,10 +90,10 @@ let g:airline_powerline_fonts = 1
 syntax on
 syntax enable
 " 支持真彩色 begin
-set t_8f=^[[38;2;%lu;%lu;%lum
-set t_8b=^[[48;2;%lu;%lu;%lum  
 if !has('gui_running')
   set t_Co=256
+  set t_8f=^[[38;2;%lu;%lu;%lum
+  set t_8b=^[[48;2;%lu;%lu;%lum  
   if has('termguicolors')
     set termguicolors
   end
@@ -103,14 +108,21 @@ set background=dark
 " colorscheme NeoSolarized
 
 " space-vim主题设置
-let g:space_vim_italic=0
-colorscheme space_vim_theme
+" let g:space_vim_italic=1
+" colorscheme space_vim_theme
 
 " nord主题设置
 " let g:nord_italic=1
 " let g:nord_italic_comments=1
 " colorscheme nord
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let base16colorspace=256
+" colorscheme base16-default-dark
+
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -143,6 +155,18 @@ let g:rainbow_conf = {
   \}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 启动彩虹括号 begin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-smooth-scroll begin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-smooth-scroll end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
