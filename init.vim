@@ -24,17 +24,18 @@ Plug 'junegunn/vim-easy-align' " 对齐指定符号
 Plug 'Valloric/YouCompleteMe' " 代码自动补全
 Plug 'maksimr/vim-jsbeautify' " js/css/html代码格式化
 Plug 'tpope/vim-surround' " 括号增强
-
+Plug 'sheerun/vim-polyglot' " 多语言渲染支持
 
 " Theme
 " Plug 'altercation/vim-colors-solarized' " 主题
-Plug 'iCyMind/NeoSolarized' " 支持真彩色的solarized主题
+" Plug 'iCyMind/NeoSolarized' " 支持真彩色的solarized主题
 Plug 'liuchengxu/space-vim-theme' " 主题
 Plug 'morhetz/gruvbox' " 主题
-Plug 'arcticicestudio/nord-vim' " 主题
-Plug 'junegunn/seoul256.vim' " seoul256
+Plug 'joshdick/onedark.vim' " 主题
+" Plug 'arcticicestudio/nord-vim' " 主题
+" Plug 'junegunn/seoul256.vim' " seoul256
 " Plug 'mhartington/oceanic-next' " neovim
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 
 Plug 'vim-airline/vim-airline' " 信息栏设置
 Plug 'vim-airline/vim-airline-themes' " 信息栏主题
@@ -49,7 +50,7 @@ Plug 'SirVer/ultisnips' " snippet生成插件
 Plug 'luochen1990/rainbow'
 
 " vim滑动滚动
-Plug 'terryma/vim-smooth-scroll'
+" Plug 'terryma/vim-smooth-scroll'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,15 +92,15 @@ syntax on
 syntax enable
 " 支持真彩色 begin
 if !has('gui_running')
-  set t_Co=256
-  set t_8f=^[[38;2;%lu;%lu;%lum
-  set t_8b=^[[48;2;%lu;%lu;%lum  
+  " set t_Co=256
+  " set t_8f=^[[38;2;%lu;%lu;%lum
+  " set t_8b=^[[48;2;%lu;%lu;%lum  
   if has('termguicolors')
     set termguicolors
   end
 end
 " 支持真彩色 end
-set background=dark
+" set background=dark
 
 " let g:seoul256_rgb=1
 " let g:seoul256_background=236
@@ -119,9 +120,14 @@ set background=dark
 " let base16colorspace=256
 " colorscheme base16-default-dark
 
-let g:gruvbox_italic=1
-colorscheme gruvbox
+" let g:gruvbox_italic=1
+" colorscheme gruvbox
 
+" onedark主题
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
+let g:airline_theme='onedark' " airline主题设置
+colorscheme onedark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -161,10 +167,10 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-smooth-scroll begin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-smooth-scroll end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
