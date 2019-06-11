@@ -204,16 +204,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 当所有文件关闭时关闭项目树窗格
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 不显示这些文件
-let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '.git', '.DS_Store'] 
+let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '\.git$', '\.DS_Store'] 
 " show all hidden file
-" let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 " autocmd vimenter * NERDTree  "自动开启Nerdtree
 " "let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
 " let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
 " "设置树的显示图标
-" " let g:NERDTreeDirArrowExpandable = '▸'
-" " let g:NERDTreeDirArrowCollapsible = '▾'
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeShowLineNumbers=1  " 是否显示行号
 " let g:NERDTreeHidden=1     " 显示隐藏文件
 " "Making it prettier
