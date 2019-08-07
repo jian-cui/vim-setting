@@ -3,19 +3,22 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'digitaltoad/vim-pug' " pug
 
 Plug 'scrooloose/nerdtree'
-" 显示文件的Git增删状态
-Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" git
+Plug 'Xuyuanp/nerdtree-git-plugin'  " 显示文件的Git增删状态
+Plug 'airblade/vim-gitgutter' " 显示git diff
 
 " Plug 'mattn/emmet-vim'          " emmet插件
-Plug 'hail2u/vim-css3-syntax'     " css3
-Plug 'groenewege/vim-less'        " less
-Plug 'mattn/emmet-vim' " html拓展
-Plug 'pangloss/vim-javascript'   " js
-Plug 'posva/vim-vue' " vue
-Plug 'statianzo/vim-jade' " jade
+" Plug 'hail2u/vim-css3-syntax'     " css3
+" Plug 'groenewege/vim-less'        " less
+" Plug 'mattn/emmet-vim' " html拓展
+" Plug 'pangloss/vim-javascript'   " js
+" Plug 'posva/vim-vue' " vue
+" Plug 'statianzo/vim-jade' " jade
+" Plug 'digitaltoad/vim-pug' " pug
+Plug 'sheerun/vim-polyglot' " 多语言渲染支持
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs' " 括号匹配
@@ -24,7 +27,6 @@ Plug 'junegunn/vim-easy-align' " 对齐指定符号
 Plug 'Valloric/YouCompleteMe' " 代码自动补全
 Plug 'maksimr/vim-jsbeautify' " js/css/html代码格式化
 Plug 'tpope/vim-surround' " 括号增强
-Plug 'sheerun/vim-polyglot' " 多语言渲染支持
 
 " Theme
 " Plug 'altercation/vim-colors-solarized' " 主题
@@ -32,6 +34,8 @@ Plug 'sheerun/vim-polyglot' " 多语言渲染支持
 Plug 'liuchengxu/space-vim-theme' " 主题
 Plug 'morhetz/gruvbox' " 主题
 Plug 'joshdick/onedark.vim' " 主题
+Plug 'kjssad/quantum.vim'
+Plug 'sainnhe/edge'
 " Plug 'arcticicestudio/nord-vim' " 主题
 " Plug 'junegunn/seoul256.vim' " seoul256
 " Plug 'mhartington/oceanic-next' " neovim
@@ -39,9 +43,6 @@ Plug 'joshdick/onedark.vim' " 主题
 
 Plug 'vim-airline/vim-airline' " 信息栏设置
 Plug 'vim-airline/vim-airline-themes' " 信息栏主题
-
-" Git
-Plug 'airblade/vim-gitgutter' " 显示git diff
 
 " snippet插件
 Plug 'SirVer/ultisnips' " snippet生成插件
@@ -92,7 +93,7 @@ syntax on
 syntax enable
 " 支持真彩色 begin
 if !has('gui_running')
-  " set t_Co=256
+  set t_Co=256
   " set t_8f=^[[38;2;%lu;%lu;%lum
   " set t_8b=^[[48;2;%lu;%lu;%lum  
   if has('termguicolors')
@@ -100,7 +101,14 @@ if !has('gui_running')
   end
 end
 " 支持真彩色 end
-" set background=dark
+set background=dark
+"""""""""""""""theme end begin"""""""""""""""
+set termguicolors
+set background=dark
+colorscheme edge
+"""""""""""""""theme edge end"""""""""""""""
+
+" colorscheme quantum
 
 " let g:seoul256_rgb=1
 " let g:seoul256_background=236
@@ -124,10 +132,18 @@ end
 " colorscheme gruvbox
 
 " onedark主题
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=1
-let g:airline_theme='onedark' " airline主题设置
-colorscheme onedark
+" if (empty($TMUX))
+" 	if (has("nvim"))
+" 	  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" 	endif
+" 	if (has("termguicolors"))
+" 		set termguicolors
+" 	endif
+" endif
+" " let g:onedark_termcolors=256
+" " let g:onedark_terminal_italics=1
+" let g:airline_theme='onedark' " airline主题设置
+" colorscheme onedark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,7 +220,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 当所有文件关闭时关闭项目树窗格
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 不显示这些文件
-let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '\.git$', '\.DS_Store'] 
+let NERDTreeIgnore=['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__', '\.git$', '\.DS_Store', '\.un\~$'] 
 " show all hidden file
 let NERDTreeShowHidden=1
 
@@ -360,6 +376,7 @@ set history=1000
 set nobackup
 set nowb
 set noswapfile
+set noundofile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件备份选项 end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
