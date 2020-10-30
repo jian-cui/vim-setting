@@ -1,4 +1,5 @@
-# NeoVim配置
+# NeoVim配置(已弃用，新仓库请见[此处](https://github.com/jian-cui/nvim))
+
 
 ## 配置安装
 1. vim增加vim-plug 
